@@ -1,0 +1,113 @@
+body {
+    font-family: arial, sans-serif;
+    margin-left: 15%;
+    padding: 5%;
+    background-color: white;
+}
+
+.errorHolder {
+    color: red;
+}
+
+.responsed_logged_in {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.sidenav {
+    list-style-type: none;
+    height: 100%; width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0; left: 0;
+    background-color: #A9A9A9;
+    overflow-x: hidden;
+    padding: 5% 0;
+}
+
+.sidenav a {
+    padding: 10%;
+    font-size: 150%;
+    display: block;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.topnav {
+    text-align: center;
+    list-style-type: none;
+    background-color: #A9A9A9;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0; margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.topnav li {
+    display: inline-block;
+}
+
+.topnav li a {
+    display: inline-block;
+    text-align: center;
+    padding: 5% 30%; padding-top: 10px; padding-bottom: 10px;
+    font-size: 100%;
+}
+
+.topnav li a:hover {
+    background-color: #555;
+}
+
+.panel-header {
+    padding: 1%;
+    background-color: #A9A9A9;
+    font-size: 150%;
+    text-align: center;
+    border-top-left-radius: 10px; border-top-right-radius: 10px;
+}
+
+.panel-body {
+padding: 5% 10%;
+    border: solid 1px #ccc;
+}
+
+.introContainer{
+    background-color: #E5E4E2;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+.introText{
+    font-family: 'Open Sans'; font-size: 18px;
+    color: #616D7E;
+    font-weight: bold;
+    display: block;
+}
+
+table, th:not(#delHeader) {
+    border: 1px solid black;
+}
+
+th, #delButton, #delBox {
+    background-color: white;
+}
+
+td, #delButton, #delBox {
+    font-size: 100%;
+    text-align: center;
+}
+
+#delButton:hover, #delBox:hover {
+    background-color: #A9A9A9;
+}
+
+tr:hover {
+    background-color: #A9A9A9;
+}

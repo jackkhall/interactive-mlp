@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gainsboro;
+}
+
+.container {
+    width: 85vw;
+    margin: 0 auto;
+    /*
+    overflow: hidden;
+    */
+}
+
+
+.graphs {
+    text-align: center;
+
+    /*
+    position: relative;
+    top: 50%;
+    transform: translateY(20%);
+    */
+    /*
+    overflow: hidden;
+    */
+}
+
+#perceptron {
+    display: inline-block;
+    vertical-align: middle;
+    /*
+    float: left;
+    */
+}
+
+.node:hover {
+    stroke: grey;
+    stroke-opacity: .7;
+    stroke-width: 5px;
+}
+
+.link {
+    stroke: black;
+    stroke-opacity: .7;
+}
+
+.link:hover {
+    stroke: red;
+    stroke-opacity: .7;
+}
+
+#scatterplot {
+    display: inline-block;
+    vertical-align: middle;
+    /*
+    overflow: hidden;
+    margin: auto;
+    */
+}
+
+
+.wrapper {
+    /*
+    border: 1px solid black;
+    overflow: hidden;
+    */
+    padding: 1%;
+    position: relative;
+}
+
+.controls {
+    width: 50%;
+    float: left;
+}
+
+.param-label {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.params {
+    width: 5em;
+}
+
+.layers {
+    width: 2em;
+}
+
+.panel {
+    width: 50%;
+    overflow: hidden;
+}
+
+.panel-header {
+    text-align: center;
+}
+
+#runButton {
+    width: 40%;
+    padding: 3%;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 22em;
+    background-color: white;
+    color: black;
+    text-align: left;
+    border-radius: 6px;
+    padding: 0 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: -50%;
+    /*
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    */
+}
+
+/*
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+*/
+
+.tt-on:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+th {
+    font-weight: normal;
+}

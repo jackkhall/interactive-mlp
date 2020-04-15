@@ -1,0 +1,18 @@
+
+/* style sheet for mobile devices */
+@media screen and (max-width:680px) {
+    /* remove side navigator and its space */
+    body {
+        margin-left: 0;
+    }
+  
+    .sidenav {
+        display: none;
+    }
+  
+    /* display log out option at top right of page */
+    .responsed_logged_in {
+        text-align: right;
+        display: inline;
+    }
+}

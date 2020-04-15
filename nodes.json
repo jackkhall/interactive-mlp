@@ -1,0 +1,10 @@
+{
+    "nodes": [
+        {"node": 0, "layer": 1},
+        {"node": 1, "layer": 1},
+        {"node": 0, "layer": 2},
+        {"node": 1, "layer": 2},
+        {"node": 2, "layer": 2},
+        {"node": 0, "layer": 3}
+    ]
+}

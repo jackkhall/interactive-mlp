@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interactive Multilayer Perceptron</title>
+        <link href="/css/main.css" rel='stylesheet' type='text/css'/>
+        <link href="/css/responsive.css" rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="/js/d3.min.js"></script>
+        <script type="text/javascript" src="/js/math.min.js"></script>
+    </head>
+	<body>
+        <div class="container">
+            <label>Tooltips</label>
+            <input type="checkbox" id="tooltip-toggle" checked>
+
+            <script>
+                $(document).ready(function() {
+                    $('.tooltip').addClass('tt-on');
+                    $('#tooltip-toggle').change(function() {
+                        if($(this).prop('checked') == true) {
+                            $('.tooltip').addClass('tt-on');
+                        } else {
+                            $('.tooltip').removeClass('tt-on');
+                        }
+                    });
+                });
+            </script>
+
+            <div class="graphs">
+                <div class="tooltip" id="perceptron">
+                    <span class="tooltiptext">
+                        <h3>Input Layer</h3>
+                        <p>The first layer which consists of the input nodes. The number of input nodes corresponds to the number of <i>features</i>/measurements of the data, in this case there are 2 nodes for the coordinates x and y.</p>
+                        <h3>Hidden Layer</h3>
+                        <p>A multilayer perceptron has one or more hidden layers comprised of hidden nodes that, like the output nodes, use an <i>activation function</i>.</p>
+                        <h3>Output Layer</h3>
+                        <p>The last layer of the network, consisting of output nodes that produce the output variables.</p>
+                        <h3>Synaptic Weights</h3>
+                        <p>Nodes in one layer are <i>fully connected</i> to each of the nodes in the following layer via a synaptic weight, whose value is adjusted by a <i>training algorithm</i>.</p>
+                    </span>
+                </div>
+                <div class="tooltip" id="scatterplot">
+                    <span class="tooltiptext">
+                        <h3>Classifying Data</h3>
+                        <p>Neural networks can be constructed to learn from data in order to make predictions using unseen data.</p>
+                        <p>The structure and parameters of a neural network can be altered to find the optimal architecture that has the best performance.</p>
+                        <p>A measure of the performance of a network can be its classification accuracy, i.e. how well the network correctly identifies which class some data belongs to.</p>
+                    </span>
+                </div>
+            </div>
+    
+            <hr>
+
+            <div class="wrapper">
+                <div class="controls">
+                    <h4 style="text-align: center;">Adjust Parameters</h4>
+                    <form>
+                        <div class="controls">
+                            <label class="param-label tooltip">
+                                Learning Rate
+                                <span class="tooltiptext">
+                                    <p>Denoted by η, this parameter controls the amount the weights are adjusted according to the classification error.</p>
+                                    <p>Smaller values mean smaller changes to synaptic weights, whereas higher values result in larger changes to speed up the rate of learning at the risk of <i>overfitting</i>.</p>
+                                </span>
+                            </label>
+                            <input type="number" class="params" id="eta" value="0.1" min="0.01" max="1.0" step="0.01">
+                            
+                            <br />
+                            
+                            <label class="param-label tooltip">
+                                Epochs
+                                <span class="tooltiptext">
+                                    <p>The number of times the entire training dataset is subjected to a forward and backward pass of the network.</p>
+                                </span>
+                            </label>
+                            <input type="number" class="params" id="epochs" value="500" min="1" max="5000" step="100">
+                            
+                            <br />
+                            
+                            <label class="param-label tooltip">
+                                Datapoints
+                                <span class="tooltiptext">
+                                    <p>The number of datapoints that are randomly generated to train and simulate the network.</p>
+                                    <p>Datasets can be split into a <i>training set</i> to estimate parameters, a <i>validation set</i> to determine a good estimate, and a <i>testing set</i> to measure the performance of the network.</p>
+                                </span>
+                            </label>
+                            <input type="number" class="params" id="datapoints" value="200" min="50" max="500" step="10">
+                        </div>
+
+                        <div class="controls">
+                            <table>
+                                <tr>
+                                    <th class="tooltip">
+                                        Layer
+                                        <span class="tooltiptext">
+                                            <p>The number of hidden layers in the network.</p>
+                                        </span>
+                                    </th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr>
+                                    <th class="tooltip">
+                                        Nodes
+                                        <span class="tooltiptext">
+                                            <p>The number of neurons present in each hidden layer of the network.</p>
+                                            <p>Neurons have an <i>activation function</i> that transforms the weighted sum of inputs to a value signalled on its output.</p>
+                                        </span>
+                                    </th>
+                                    <td><input type="number" class="params layers" id="layer1" value="3" min="1" max="8" step="1"></td>
+                                    <td><input type="number" class="params layers" id="layer2" value="0" min="0" max="8" step="1"></td>
+                                    <td><input type="number" class="params layers" id="layer3" value="0" min="0" max="8" step="1"></td>
+                                    <td><input type="number" class="params layers" id="layer4" value="0" min="0" max="8" step="1"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="panel">
+                    <div class="panel-header">
+                        <button id="runButton" type="button" onclick="run()">Train & Simulate</button>
+                    </div>
+
+                    <div class="panel-body">
+                        <p><span id="misclassified"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/plot.js"></script>
+        <script type="text/javascript" src="/js/feedforward.js"></script>
+        <script type="text/javascript" src="/js/perceptron.js"></script>
+	</body>
+</html>
